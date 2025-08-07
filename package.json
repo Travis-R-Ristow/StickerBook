@@ -1,0 +1,9 @@
+{
+	"name": "StickerBook",
+	"version": "0.0.1",
+	"description": "A place to collect stickers :D",
+	"main": "server.js",
+	"author": "Buddy",
+	"license": "MIT",
+	"dependencies": {}
+}
