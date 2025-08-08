@@ -1,1 +1,3 @@
-export const Home = () => <>Hi im the home page.</>;
+import { Home } from "./Home.jsx";
+
+export { Home };
