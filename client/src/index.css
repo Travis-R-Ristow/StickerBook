@@ -1,13 +1,50 @@
+:root {
+  --rand-img-rotate: 3deg;
+  --border-width: 0.5rem;
+  --green: green;
+}
+
+html {
+  background-color: #1c1c1c;
+}
+
 body {
-	margin: 0;
-	font-family:
-		-apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu",
-		"Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
+  margin: 0;
+  font-family: "Fredoka";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  *::placeholder {
+    font-family: "Fredoka";
+  }
+}
+
+div {
+  display: flex;
 }
 
 code {
-	font-family:
-		source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+  font-family:
+    source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+}
+
+@media (max-width: 1720px) {
+  html {
+    font-size: 18px;
+  }
+}
+@media (max-width: 1260px) {
+  html {
+    font-size: 14px;
+  }
+}
+@media (max-width: 970px) {
+  html {
+    font-size: 12px;
+  }
+}
+@media (max-width: 875px) {
+  html {
+    font-size: 6px;
+  }
 }

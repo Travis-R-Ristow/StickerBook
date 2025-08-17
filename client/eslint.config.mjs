@@ -7,13 +7,16 @@ import globals from "globals";
 export default defineConfig([
   {
     files: ["**/*.{js,mjs,cjs,jsx}"],
-    plugins: { js, react: pluginReact, "simple-import-sort": simpleImportSort },
+    plugins: {
+      js,
+      react: pluginReact,
+      "simple-import-sort": simpleImportSort,
+    },
     extends: ["js/recommended"],
     languageOptions: { globals: globals.browser },
     rules: {
       "simple-import-sort/imports": "error",
       "simple-import-sort/exports": "error",
-      "react/react-in-jsx-scope": "off",
     },
     settings: {
       react: {
@@ -22,4 +25,5 @@ export default defineConfig([
     },
   },
   pluginReact.configs.flat.recommended,
+  pluginReact.configs.flat["jsx-runtime"],
 ]);
