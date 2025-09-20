@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 
+import { ContentBox } from '../Shared/styles';
+
 export const Wrapper = styled.div`
   display: block;
   width: 100%;
@@ -28,6 +30,31 @@ export const ContentWrapper = styled.div`
 export const ShowcaseWrapper = styled.div`
   background: darkgreen;
   height: 10vh;
-  justify-content: center;
+  justify-content: space-evenly;
   padding: 2rem;
+  
+  & > img {
+    scale: 150%;
+  }
+`;
+
+export const ContentBlock = styled(ContentBox)`
+  flex-direction: column;
+  justify-content: center;
+  width: 25%;
+
+  & > h3 {
+    font-size: 2rem;
+  }
+  
+  & > p {
+    font-size: 1.5rem;
+    margin: 0;
+  }
+  
+  &:hover:not(.not-clickable) {
+    cursor: pointer;
+    scale: 105%;
+    text-decoration: underline;
+  }
 `;

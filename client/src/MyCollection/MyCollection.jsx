@@ -1,27 +1,35 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router";
 
 import { HeaderWrapper } from "../Shared/styles";
 import sticker1 from "../stickers/sticker1.png"
 import sticker2 from "../stickers/sticker2.png";
 import sticker3 from "../stickers/sticker3.png";
+const My_Stickers = [sticker1, sticker2, sticker3];
 import { Folder, FolderWrapper, NavBar, StickerWrapper, ToolBar, Wrapper } from "./styles";
 
 export const MyCollection = () => {
   const navigate = useNavigate();
 
-  const [folderSelected, setFolderSelected] = useState(null);
+  const [folderSelected, setFolderSelected] = useState();
+  const stickersRef = useRef([]);
 
   useEffect(() => {
-    const allStickers = document.getElementsByClassName("sticker");
+    const allStickers = stickersRef.current;
     for (var i = 0; i < allStickers.length; i++) {
       const sticker = allStickers[i];
+      if (!sticker) {
+        continue;
+      }
       sticker.addEventListener('mouseenter', updateImgRotate);
     }
 
     return (() => {
       for (var i = 0; i < allStickers.length; i++) {
         const sticker = allStickers[i];
+        if (!sticker) {
+          continue;
+        }
         sticker.removeEventListener('mouseenter', updateImgRotate);
       }
     })
@@ -32,14 +40,16 @@ export const MyCollection = () => {
     <Wrapper>
       <NavBar>
         <div onClick={() => navigate('/')}>Home</div>
-        <div onClick={() => navigate('/')}>Upload Image</div>
+        <div onClick={() => navigate('/')}>Upload Sticker</div>
+        <div onClick={() => navigate('/log-out')}>Log Out</div>
       </NavBar>
       <HeaderWrapper>
         <h2>My Stickers</h2>
       </HeaderWrapper>
       <ToolBar>
+        <div>Edit Folder</div>
         <div>Create Folder</div>
-        <div>Delete Folder</div>
+        <div className="red">Delete Folder</div>
         <div onClick={() => setFolderSelected(false)}>
           {folderSelected && "Back"}
         </div>
@@ -71,16 +81,21 @@ export const MyCollection = () => {
       }
       {folderSelected &&
         <FolderWrapper>
-          <Folder className="not-clickable">
-            Selected Folder
+          <Folder onClick={() => setFolderSelected(false)}>
+            Parent Folder
           </Folder>
         </FolderWrapper>
       }
       <StickerWrapper>
-        <img src={sticker1} alt="sticker1" className="sticker" />
-        <img src={sticker2} alt="sticker2" className="sticker" />
-        <img src={sticker3} alt="sticker3" className="sticker" />
+        {My_Stickers.map((s, i) =>
+          <img src={s} alt={`sticker${i}`} key={`sticker${i}`} ref={img => stickersRef.current[i] = img} />
+        )}
       </StickerWrapper>
+      <div>
+        <br />
+        <br />
+        <br />
+      </div>
     </Wrapper >
   );
 };

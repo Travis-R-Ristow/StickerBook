@@ -28,6 +28,9 @@ export const ToolBar = styled.div`
 
   & > div {
     min-width: 4rem;
+    &.red {
+      color: darkred;
+    }
   }
 
   & > div:hover {
