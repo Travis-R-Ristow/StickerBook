@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router";
 
 import { HeaderWrapper } from "../Shared/styles";
@@ -6,35 +6,13 @@ import sticker1 from "../stickers/sticker1.png"
 import sticker2 from "../stickers/sticker2.png";
 import sticker3 from "../stickers/sticker3.png";
 const My_Stickers = [sticker1, sticker2, sticker3];
+import { Sticker } from "../Shared/Sticker";
 import { Folder, FolderWrapper, NavBar, StickerWrapper, ToolBar, Wrapper } from "./styles";
 
 export const MyCollection = () => {
   const navigate = useNavigate();
 
   const [folderSelected, setFolderSelected] = useState();
-  const stickersRef = useRef([]);
-
-  useEffect(() => {
-    const allStickers = stickersRef.current;
-    for (var i = 0; i < allStickers.length; i++) {
-      const sticker = allStickers[i];
-      if (!sticker) {
-        continue;
-      }
-      sticker.addEventListener('mouseenter', updateImgRotate);
-    }
-
-    return (() => {
-      for (var i = 0; i < allStickers.length; i++) {
-        const sticker = allStickers[i];
-        if (!sticker) {
-          continue;
-        }
-        sticker.removeEventListener('mouseenter', updateImgRotate);
-      }
-    })
-  }, []);
-
 
   return (
     <Wrapper>
@@ -88,7 +66,7 @@ export const MyCollection = () => {
       }
       <StickerWrapper>
         {My_Stickers.map((s, i) =>
-          <img src={s} alt={`sticker${i}`} key={`sticker${i}`} ref={img => stickersRef.current[i] = img} />
+          <Sticker src={s} key={`sticker${i}`} alt={`sticker${i}`} className='big' />
         )}
       </StickerWrapper>
       <div>
@@ -99,11 +77,3 @@ export const MyCollection = () => {
     </Wrapper >
   );
 };
-
-const MAX_ROTATE = 10;
-const updateImgRotate = () =>
-  document.documentElement.style
-    .setProperty(
-      '--rand-img-rotate',
-      `${Math.floor(Math.random() * (MAX_ROTATE * 2 + 1) + -MAX_ROTATE)}deg`
-    );

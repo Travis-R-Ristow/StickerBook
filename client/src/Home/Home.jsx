@@ -2,7 +2,9 @@ import { useState } from "react";
 import { useNavigate } from "react-router";
 
 import { SignIn } from "../Icons/SignIn";
+import { Button } from "../Shared/Buttons";
 import { Modal } from "../Shared/Modal";
+import { Sticker } from "../Shared/Sticker";
 import { HeaderWrapper } from "../Shared/styles";
 import sticker1 from "../stickers/sticker1.png";
 import sticker2 from "../stickers/sticker2.png";
@@ -14,8 +16,10 @@ export const Home = () => {
 
   const [logInModalOpen, setLogInModalOpen] = useState(false);
   const [isLoggedIn, setLoggedIn] = useState(false);
+
   const handleIsLoggedInClick = () =>
     isLoggedIn ? navigate('/my-collection') : setLogInModalOpen(true);
+  const handleCloseModal = () => setLogInModalOpen(false);
 
 
   return (
@@ -42,9 +46,9 @@ export const Home = () => {
           </ContentBlock>
         </ContentWrapper>
         <ShowcaseWrapper>
-          <img src={sticker1} alt="sticker1" className="sticker" />
-          <img src={sticker2} alt="sticker2" className="sticker" />
-          <img src={sticker3} alt="sticker3" className="sticker" />
+          <Sticker src={sticker1} alt="sticker1" />
+          <Sticker src={sticker2} alt="sticker2" />
+          <Sticker src={sticker3} alt="sticker3" />
         </ShowcaseWrapper>
         <br />
         <br />
@@ -53,8 +57,11 @@ export const Home = () => {
         </div>
       </Wrapper>
       {logInModalOpen &&
-        <Modal>
-          Test
+        <Modal title='Login' setModalClose={handleCloseModal}>
+          <div>Test</div>
+          <div>Test</div>
+          <div>Test</div>
+          <Button />
         </Modal>
       }
     </>

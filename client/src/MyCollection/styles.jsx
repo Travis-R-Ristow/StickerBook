@@ -64,15 +64,4 @@ export const Folder = styled(ContentBox)`
 export const StickerWrapper = styled.div`
   flex-wrap: wrap;
   justify-content: center;
-
-  & > img {
-    width: auto;
-    height: 12rem;
-  } 
-
-
-  & > img:hover {
-    scale: 105%;
-    rotate: var(--rand-img-rotate);
-  }
 `;

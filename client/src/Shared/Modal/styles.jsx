@@ -16,3 +16,17 @@ export const StyledModal = styled.div`
   height: 60vh;
   margin: auto;
 `;
+
+export const Title = styled.div`
+  width: 100%;
+  font-weight: bold;
+  font-size: 3rem;
+  justify-content: center;
+  margin-bottom: 1rem;
+  border-bottom: solid 0.25rem green;
+`;
+
+export const ChildWrapper = styled.div`
+  flex-direction: column; 
+  justify-content: center;
+`;

@@ -32,16 +32,12 @@ export const ShowcaseWrapper = styled.div`
   height: 10vh;
   justify-content: space-evenly;
   padding: 2rem;
-  
-  & > img {
-    scale: 150%;
-  }
+  align-items: center;
 `;
 
 export const ContentBlock = styled(ContentBox)`
-  flex-direction: column;
-  justify-content: center;
   width: 25%;
+  justify-content: center;
 
   & > h3 {
     font-size: 2rem;

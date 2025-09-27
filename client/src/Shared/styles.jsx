@@ -14,6 +14,7 @@ export const ContentBox = styled.div`
   background: white;
   border-radius: 1rem;
   border: solid var(--border-width) green;
+  flex-direction: column;
   margin: 1rem;
   padding: 1rem;
   text-align: center;
