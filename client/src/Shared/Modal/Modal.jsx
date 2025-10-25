@@ -4,23 +4,23 @@ import { ContentBox } from "../styles";
 import { ChildWrapper, StyledModal, StyledModalBackground, Title } from "./styles";
 
 export const Modal = ({ title, children, setModalClose = () => { } }) => {
-  const modalRef = useRef(null);
+  const modalBackgroundRef = useRef(null);
 
   useEffect(() => {
     document.body.style.overflow = 'hidden';
 
-    const modalElm = modalRef.current;
-    if (!modalElm) {
+    const modalBackgroundElm = modalBackgroundRef.current;
+    if (!modalBackgroundElm) {
       return () => { }
     }
 
     const handleBackgroundClick = ({ target }) => {
-      if (target !== modalElm) {
+      if (target === modalBackgroundElm) {
         setModalClose();
       }
     };
 
-    if (modalElm) {
+    if (modalBackgroundElm) {
       document.addEventListener('mousedown', handleBackgroundClick);
     }
 
@@ -31,8 +31,8 @@ export const Modal = ({ title, children, setModalClose = () => { } }) => {
   }, []);
 
   return (
-    <StyledModalBackground>
-      <StyledModal ref={modalRef}>
+    <StyledModalBackground ref={modalBackgroundRef}>
+      <StyledModal>
         <ContentBox>
           {title &&
             <Title>

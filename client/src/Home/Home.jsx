@@ -2,13 +2,12 @@ import { useState } from "react";
 import { useNavigate } from "react-router";
 
 import { SignIn } from "../Icons/SignIn";
-import { Button } from "../Shared/Buttons";
-import { Modal } from "../Shared/Modal";
 import { Sticker } from "../Shared/Sticker";
 import { HeaderWrapper } from "../Shared/styles";
 import sticker1 from "../stickers/sticker1.png";
 import sticker2 from "../stickers/sticker2.png";
 import sticker3 from "../stickers/sticker3.png";
+import { LoginModal } from "./LoginModal";
 import { ContentBlock, ContentWrapper, SearchInput, SearchWrapper, ShowcaseWrapper, Wrapper } from "./styles";
 
 export const Home = () => {
@@ -19,8 +18,6 @@ export const Home = () => {
 
   const handleIsLoggedInClick = () =>
     isLoggedIn ? navigate('/my-collection') : setLogInModalOpen(true);
-  const handleCloseModal = () => setLogInModalOpen(false);
-
 
   return (
     <>
@@ -57,12 +54,7 @@ export const Home = () => {
         </div>
       </Wrapper>
       {logInModalOpen &&
-        <Modal title='Login' setModalClose={handleCloseModal}>
-          <div>Test</div>
-          <div>Test</div>
-          <div>Test</div>
-          <Button />
-        </Modal>
+        <LoginModal setLogInModalOpen={setLogInModalOpen} />
       }
     </>
   );
