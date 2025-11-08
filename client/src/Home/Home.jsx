@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router";
 
 import { SignIn } from "../Icons/SignIn";
+import { Footer } from "../Shared/Footer";
 import { Sticker } from "../Shared/Sticker";
 import { HeaderWrapper } from "../Shared/styles";
 import sticker1 from "../stickers/sticker1.png";
@@ -49,9 +50,7 @@ export const Home = () => {
         </ShowcaseWrapper>
         <br />
         <br />
-        <div>
-          Footer
-        </div>
+        <Footer />
       </Wrapper>
       {logInModalOpen &&
         <LoginModal setLogInModalOpen={setLogInModalOpen} />

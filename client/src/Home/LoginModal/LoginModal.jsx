@@ -1,6 +1,6 @@
 import { Button } from "../../Shared/Buttons";
 import { Modal } from "../../Shared/Modal";
-import { Wrapper } from "./styles";
+import { Input, InputWrapper, Wrapper } from "./styles";
 
 export const LoginModal = ({ setLogInModalOpen }) => {
   const handleCloseModal = () => setLogInModalOpen(false);
@@ -8,13 +8,13 @@ export const LoginModal = ({ setLogInModalOpen }) => {
   return (
     <Modal title='Login' setModalClose={handleCloseModal}>
       <h3>Login to rate stickers and save private stickers/collections</h3>
+      <InputWrapper>
+        <Input value="" alt="email" placeholder="email" />
+        <Input value="" alt="password" placeholder="password" />
+      </InputWrapper>
       <Wrapper>
-        <input value="" alt="email" placeholder="email" />
-        <input value="" alt="password" placeholder="password" />
-      </Wrapper>
-      <Wrapper>
-        <Button>Back</Button>
-        <Button>Login</Button>
+        <Button className="bigText green" onClick={handleCloseModal}>Back</Button>
+        <Button className="bigText green">Login</Button>
       </Wrapper>
     </Modal>
   );

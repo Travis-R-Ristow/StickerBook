@@ -21,5 +21,5 @@ export const Button = ({ type = 'button', className = 'green', children, ...prop
     })
   }, []);
 
-  return (<StyledButton type={type} ref={btnRef} className={className} props={{ ...props }}>{children}</StyledButton>);
+  return (<StyledButton type={type} ref={btnRef} className={className} {...props}>{children}</StyledButton>);
 }

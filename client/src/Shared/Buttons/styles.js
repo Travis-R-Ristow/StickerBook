@@ -17,6 +17,10 @@ export const StyledButton = styled.button`
   box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.3);
   transition: all 0.2s ease-in-out;
 
+  &.bigText {
+    font-size: 24px;
+  }
+
   &.red {
     background-color: #ff6f61;
   }
